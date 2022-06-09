@@ -7,7 +7,7 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                \Hyperf\Contract\StdoutLoggerInterface::class => \App\Logger\StdoutLoggerFactory::class,
+                \Hyperf\Contract\StdoutLoggerInterface::class => StdoutLoggerFactory::class,
             ],
             'publish' => [
                 [
