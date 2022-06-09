@@ -7,6 +7,9 @@
             "Yuanxinhealthy\\Logger\\": "src/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "require": {},
     "extra": {
         "hyperf": {
