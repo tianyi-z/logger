@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Yuanxinhealthy\\Logger\\": "src/"
+            "YuanxinHealthy\\Logger\\": "src/"
         }
     },
     "config": {
@@ -13,7 +13,7 @@
     "require": {},
     "extra": {
         "hyperf": {
-            "config": "Yuanxinhealthy\\Logger\\ConfigProvider"
+            "config": "YuanxinHealthy\\Logger\\ConfigProvider"
         }
     }
 }
