@@ -13,7 +13,7 @@
     "require": {},
     "extra": {
         "hyperf": {
-            "config": "YuanxinHealthy\\Logger\\ConfigProvider"
+            "config": "Yuanxinhealthy\\Logger\\ConfigProvider"
         }
     }
 }
