@@ -6,7 +6,7 @@ return [
             'class' => Monolog\Handler\RotatingFileHandler::class,
             'constructor' => [
                 'filename' => BASE_PATH . '/runtime/logs/hyperf.log',
-                'level' => Monolog\Logger::INFO,
+                'level' => intval(env('APP_LOGGER_LEVEL', Monolog\Logger::NOTICE)),
             ],
         ],
         'formatter' => [
