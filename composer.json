@@ -1,0 +1,16 @@
+{
+    "name": "yuanxinhealthy/logger",
+    "description": "日志",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Yuanxinhealthy\\Logger\\": "src/"
+        }
+    },
+    "require": {},
+    "extra": {
+        "hyperf": {
+            "config": "YuanxinHealthy\\Logger\\ConfigProvider"
+        }
+    }
+}
