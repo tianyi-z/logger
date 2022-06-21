@@ -9,6 +9,29 @@ class ConfigProvider
             'dependencies' => [
                 \Hyperf\Contract\StdoutLoggerInterface::class => StdoutLoggerFactory::class,
             ],
+            'middlewares' => [
+                'http' => [
+                    BusinessLogMiddleware::class,
+                ],
+            ],
+            'logger' => [
+                'businessLog' => [
+                    'handler' => [
+                        'class' => Monolog\Handler\RotatingFileHandler::class,
+                        'constructor' => [
+                            'dateFormat' => "Y-m-d H:i:s",
+                            'filename' => BASE_PATH . '/runtime/business-logs/hyperf.log',
+                            'level' => intval(env('APP_LOGGER_LEVEL', Monolog\Logger::INFO)),
+                        ],
+                    ],
+                    'formatter' => [
+                        'class' => Monolog\Formatter\JsonFormatter::class,
+                        'constructor' => [
+                            'allowInlineLineBreaks' => true,
+                        ],
+                    ],
+                ],
+            ],
             'publish' => [
                 [
                     'id' => 'config',
