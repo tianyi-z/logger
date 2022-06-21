@@ -41,6 +41,12 @@ class BusinessLogMiddleware implements MiddlewareInterface
                 'request' => $requestInterface->all(),
                 'response' => $response->getBody()->getContents(),
             ];
+            if (!empty($context['response']) && is_string($context['response'])) {
+                $tmp = json_decode($context['response'], true);
+                if (is_array($tmp)) {
+                    $context['response'] = $tmp;
+                }
+            }
         }
         Log::get('business', 'businessLog')->info($sign, $context);
         return $response;
