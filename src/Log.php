@@ -6,8 +6,8 @@ use Hyperf\Utils\ApplicationContext;
 
 class Log
 {
-    public static function get(string $name = 'app')
+    public static function get(string $name = 'app', $group = 'default')
     {
-        return ApplicationContext::getContainer()->get(LoggerFactory::class)->get($name);
+        return ApplicationContext::getContainer()->get(LoggerFactory::class)->get($name, $group);
     }
 }
