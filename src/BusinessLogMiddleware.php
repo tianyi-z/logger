@@ -22,17 +22,17 @@ class BusinessLogMiddleware implements MiddlewareInterface
             // 没启用.
             return $handler->handle($request);
         }
+        $response = $handler->handle($request);
         $routeHand = $request->getAttribute(Dispatched::class)->handler;
         $method = strtoupper($request->getMethod() . '');
         $route = $routeHand->route . ':' . $method;
         $rules = config('business_log.rules');
         if (!isset($rules[$route])) {
             // 没有配置规则
-            return $handler->handle($request);
+            return $response;
         }
-        $sign = empty($rules[$route]['sign']) ? $route : $rules[$route]['sign'];
+        $sign = empty($rules[$route]['business_type']) ? $route : $rules[$route]['business_type'];
         $requestInterface = \Hyperf\Utils\ApplicationContext::getContainer()->get(RequestInterface::class);
-        $response = $handler->handle($request);
         if (isset($rules[$route]['callback'])) {
             $context = call_user_func_array($rules[$route]['callback'], [$requestInterface, $response, $route]);
         } else {
